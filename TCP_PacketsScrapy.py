@@ -1,13 +1,10 @@
-from scapy.all import IP, TCP, sr1
-
+from scapy.all import *
 
 def tcp_packet_sender(ip, port):
     # Make TCP SYN packet
     ip_layer = IP(dst=ip)
     tcp_layer = TCP(dport=port, flags='S')  # 'S' = SYN
-
     packet = ip_layer / tcp_layer
-
     print(f"Test sending TCP SYN to {ip}:{port}...")
 
     # Transfer packet and but wait for response (with 3 min timeout)
@@ -19,5 +16,5 @@ def tcp_packet_sender(ip, port):
     else:
         print("No response received.")
 
-#call function with attributes
+# call function with attributes
 tcp_packet_sender("104.21.80.1", 80)

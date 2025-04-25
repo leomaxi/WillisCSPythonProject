@@ -29,7 +29,7 @@ def get_country_data(url):
     return countries
 
 #Create a function and use panda to save the data to a csv file named countries.csv
-def export_to_csv(data, filename="countries.csv"):
+def export_to_csv(data, filename="countryList.csv"):
     df = pd.DataFrame(data)
     df.to_csv(filename, index=False)
     print(f"Data exported to {filename}")
@@ -38,7 +38,7 @@ url = "https://www.scrapethissite.com/pages/simple/"
 country_info = get_country_data(url)
 
 # Display the first few entries
-for entry in country_info[:5]:
+for entry in country_info:
     print(entry)
 
 # Export to file
